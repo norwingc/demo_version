@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Agenda;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,20 +13,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $agendas = Agenda::all();
+        return view('welcome', compact('agendas'));
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * [viewPerson description]
+     * @param   Agenda  $Agenda  [$Agenda description]
+     * @return  [type]           [return description]
      */
-    public function about($nombre = null)
+    public function viewPerson(Agenda $Agenda)
     {
-        if ($nombre == null) $nombre = 'nada';
-        return view('about', compact('nombre'));
-    }
-
-    public function viewPerson($id)
-    {
-        return $id;
+        return view('person', ['person' => $Agenda]);
     }
 }
