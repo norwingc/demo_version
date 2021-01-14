@@ -14,4 +14,4 @@
 //Route::view('/', 'welcome');
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/About/{nombre?}', 'HomeController@about')->name('about');
+Route::get('View/{id}', 'HomeController@viewPerson')->name('view.person');

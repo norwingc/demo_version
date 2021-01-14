@@ -22,4 +22,9 @@ class HomeController extends Controller
         if ($nombre == null) $nombre = 'nada';
         return view('about', compact('nombre'));
     }
+
+    public function viewPerson($id)
+    {
+        return $id;
+    }
 }

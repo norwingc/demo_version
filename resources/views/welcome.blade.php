@@ -8,8 +8,24 @@
     <title>Laravel</title>
 </head>
 <body>
-    <p>Esta es la vista</p>
-
-    <a href="{{ route('about') }}">Ir al about</a>
+    <h1>Agenda</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Nombre</td>
+                <td>324242423</td>
+                <td>jfladsf.com</td>
+                <td><a href="{{ route('view.person', 1) }}">View</a></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
