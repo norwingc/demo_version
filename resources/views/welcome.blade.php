@@ -26,14 +26,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($agendas as $agenda)
+                    @foreach($agenda->people as $person)
                         <tr>
-                            <td>{{ $agenda->name }}</td>
-                            <td>{{ $agenda->phone }}</td>
-                            <td>{{ $agenda->email }}</td>
+                            <td>{{ $person->name }}</td>
+                            <td>{{ $person->phone }}</td>
+                            <td>{{ $person->email }}</td>
                             <td>
-                                <a href="{{ route('view.person', $agenda) }}" class="btn btn-info text-white">View</a>
-                                <a href="{{ route('person.delete', $agenda) }}" class="btn btn-danger">Delete</a>
+                                <a href="{{ route('person.view', $person) }}" class="btn btn-info text-white">View</a>
+                                <a href="{{ route('person.delete', $person) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach

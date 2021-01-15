@@ -13,17 +13,31 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $agendas = Agenda::all();
-        return view('welcome', compact('agendas'));
+        $agenda = auth()->user()->agenda;
+        // $agenda = \Auth::user()->agenda;
+        $agenda->load('people');
+        return view('welcome', compact('agenda'));
     }
 
-    /**
-     * [viewPerson description]
-     * @param   Agenda  $Agenda  [$Agenda description]
-     * @return  [type]           [return description]
-     */
-    public function viewPerson(Agenda $Agenda)
+    public function login(Request $request)
     {
-        return view('person', ['person' => $Agenda]);
+        $userdata = [
+			'email' => $request->email,
+			'password' => $request->password,
+		];
+
+		if (\Auth::attempt($userdata)) {
+            return redirect()->route('home');
+        }
+
+        session()->flash('message_success', 'Fail');
+        return back();
+    }
+
+    public function logout()
+    {
+        \Auth::logout();
+
+        return redirect('/');
     }
 }

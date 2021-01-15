@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Agenda;
 
 class User extends Authenticatable
 {
@@ -36,4 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function agenda()
+    {
+        return $this->hasOne(Agenda::class);
+        // return $this->hasOne('App\Agenda', 'agenda_id');
+    }
 }
