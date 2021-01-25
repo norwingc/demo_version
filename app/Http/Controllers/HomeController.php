@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Agenda;
-
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,9 +11,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $agenda = auth()->user()->agenda;
-        // $agenda = \Auth::user()->agenda;
-        $agenda->load('people');
+		$agenda = auth()->user()->agenda;
+		$agenda->load('people');
         return view('welcome', compact('agenda'));
     }
 

@@ -33,11 +33,11 @@ Route::group(['middleware' => ['auth']], function () {
 
 
 Route::get('test', function(){
-    // $user = new User();
-    // $user->name = 'nombre';
-    // $user->email = 'nombre@nombre.com';
-    // $user->password = bcrypt('123456');
-    // $user->save();
+    $user = new User();
+    $user->name = 'nombre';
+    $user->email = 'nombre@nombre.com';
+    $user->password = bcrypt('123456');
+    $user->save();
 
     // $user = User::find(1);
     // return $user->load('agenda.people');

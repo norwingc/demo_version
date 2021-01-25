@@ -17,8 +17,10 @@ class PersonController extends Controller
         $person = new Person($request->all());
         $agenda->people()->save($person);
 
-        session()->flash('message_success', 'Information created');
-        return back();
+        return response()->json([
+			'saved' => true,
+			'person' => $person
+		]);
     }
 
     public function update(Request $request, Person $Person)
@@ -33,8 +35,9 @@ class PersonController extends Controller
     {
         $Person->delete();
 
-        session()->flash('message_success', 'Information deleted');
-        return back();
+        return response()->json([
+			'deleted' => true
+		]);
     }
 
     /**
