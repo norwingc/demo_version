@@ -2162,6 +2162,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['person'],
   created: function created() {
@@ -2208,7 +2211,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 _context2.next = 2;
                 return axios.post("/Person/Sons/store/".concat(_this2.person.id), _this2.son).then(function (res) {
-                  _this2.son.push(res.data.sons);
+                  _this2.sons.sons.push(res.data.son);
+
+                  _this2.son = {};
                 });
 
               case 2:
@@ -38899,7 +38904,9 @@ var render = function() {
               }
             }
           })
-        ])
+        ]),
+        _vm._v(" "),
+        _vm._m(2)
       ]
     )
   ])
@@ -38927,6 +38934,18 @@ var staticRenderFns = [
       ]),
       _vm._v(" "),
       _c("button", { staticClass: "btn btn-danger" }, [_vm._v("Delete")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-grup mt-2" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-success", attrs: { type: "submit" } },
+        [_vm._v("Save")]
+      )
     ])
   }
 ]

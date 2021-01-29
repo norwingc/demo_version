@@ -29,6 +29,9 @@
 			<label>Age</label>
 			<input type="number" class="form-control" v-model="son.age" required>
 		</div>
+		<div class="form-grup mt-2">
+			<button type="submit" class="btn btn-success">Save</button>
+		</div>
 	</form>
 </section>
 </template>
@@ -56,7 +59,8 @@ export default {
 		},
 		async storeSon(){
 			await axios.post(`/Person/Sons/store/${this.person.id}`, this.son).then(res => {
-				this.son.push(res.data.sons)
+				this.sons.sons.push(res.data.son)
+				this.son = {}
 			})
 		}
 	}

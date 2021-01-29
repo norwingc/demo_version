@@ -25,10 +25,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/update/{Person}', 'PersonController@update')->name('person.update');
 		Route::get('/delete/{Person}', 'PersonController@delete')->name('person.delete');
 		Route::get('/Sons/{Person}', 'PersonController@getSons')->name('person.get.sons');
-		Route::get('/Sons/store/{Person}', 'SonController@store')->name('person.store.sons');
+		Route::post('/Sons/store/{Person}', 'SonController@store')->name('person.store.sons');
     });
 });
-
 
 Route::get('test', function(){
     // $user = new \App\User();

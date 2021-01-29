@@ -4,19 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Person;
+use App\Son;
 
 class SonController extends Controller
 {
     public function store(Request $request, Person $Person)
 	{
-		return $request;
-		$son = new Son();
-		$son->name = $request->name;
-		$son->age = $request->age;
-		$son->save();
+		$son = new Son($request->all());
+		$Person->sons()->save($son);
 
-		return response()->json([
-			'son' => $son
-		]);
+		if($request->ajax()){
+			return response()->json([
+				'son' => $son
+			]);
+		}
+		return back();
 	}
 }
