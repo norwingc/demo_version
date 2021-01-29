@@ -25,6 +25,8 @@
                 <input type="email" name="email" class="form-control" value="{{ $person->email }}">
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
-        </form>
+		</form>
+
+		<store-son :person="{{ $person }}"/>
     </main>
 @endsection

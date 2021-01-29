@@ -48,5 +48,10 @@ class PersonController extends Controller
     public function view(Person $Person)
     {
         return view('person', ['person' => $Person]);
-    }
+	}
+
+	public function getSons(Person $Person)
+	{
+		return $Person->load('sons');
+	}
 }

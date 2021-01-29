@@ -14,7 +14,12 @@ class HomeController extends Controller
 		$agenda = auth()->user()->agenda;
 		$agenda->load('people');
         return view('welcome', compact('agenda'));
-    }
+	}
+
+	public function demo()
+	{
+		return view('demo');
+	}
 
     public function login(Request $request)
     {
